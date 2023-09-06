@@ -15,6 +15,8 @@ framePlaceholder = st.empty()
 cTime = 0
 pTime = 0
 detector = pm.poseDetector()
+
+stopButton = st.button("Stop")
 while True:
 
     Success, frame = cam.read()
@@ -35,7 +37,7 @@ while True:
     
     key = cv2.waitKey(1)
 
-    if key == 81 or key == 113:
+    if key == ord('q') or stopButton:
         cam.release()
         cv2.destroyAllWindows()
         break
