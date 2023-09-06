@@ -21,8 +21,6 @@ while True:
     frame = detector.findPose(frame)
     lm = detector.findPosLm(frame)
 
-    print(lm[0])
-
     cTime = time.time()
     fps = 1/(cTime - pTime)
     pTime = cTime
@@ -38,10 +36,10 @@ while True:
     key = cv2.waitKey(1)
 
     if key == 81 or key == 113:
+        cam.release()
+        cv2.destroyAllWindows()
         break
 
 
 cam.release()
 cv2.destroyAllWindows()
-
-print("Code Completed!")
